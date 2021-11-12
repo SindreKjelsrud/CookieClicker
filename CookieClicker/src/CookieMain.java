@@ -17,7 +17,7 @@ import java.awt.event.MouseEvent;
 public class CookieMain {
 	
 	JLabel counterLabel, perSecLabel;
-	JButton button1, button2, button3, button4;
+	JButton button1, button2, button3, button4, button5;
 	int cookieCounter, timerSpeed, cursorNumber, cursorPrice, grandpaNumber, grandpaPrice, farmNumber, farmPrice, factoryNumber, factoryPrice;
 	double perSecond;
 	boolean timerOn, grandpaUnlocked, farmUnlocked, factoryUnlocked;
@@ -110,6 +110,13 @@ public class CookieMain {
 		itemPanel.setBackground(Color.black);
 		itemPanel.setLayout(new GridLayout(4, 1));
 		window.add(itemPanel);
+		 
+		// Easter Egg Panel
+		JPanel eggPanel = new JPanel();
+		eggPanel.setBounds(780, 559, 5, 5);
+		eggPanel.setBackground(Color.black);
+		eggPanel.setLayout(new GridLayout(1, 1));
+		window.add(eggPanel);
 		
 		// Item buttons
 		//button1
@@ -144,6 +151,15 @@ public class CookieMain {
 			button4.setActionCommand("Factory");
 			button4.addMouseListener(mHandler);
 			itemPanel.add(button4);
+		//button5 (easter egg)
+			button5 = new JButton();
+			button5.setBackground(Color.green);
+			button5.setFont(font1);
+			button5.setFocusPainted(false);
+			button5.addActionListener(cHandler);
+			button5.setActionCommand("egg");
+			button5.addMouseListener(mHandler);
+			eggPanel.add(button5);
 			
 		// Message box for items
 		JPanel messagePanel = new JPanel();
@@ -287,6 +303,11 @@ public class CookieMain {
 				else {
 					messageTxt.setText("You need more cookies!");
 				}
+				break;
+			case "egg":
+				messageTxt.setText("Congrats, you found the Easter Egg!");
+				cookieCounter += 10000;
+				counterLabel.setText(cookieCounter + " cookies");
 				break;
 			}
 			
