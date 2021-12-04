@@ -65,6 +65,7 @@ public class CookieMain {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);;
 		window.getContentPane().setBackground(Color.black);
 		window.setLocationRelativeTo(null);
+		window.setResizable(false);
 		window.setLayout(null);
 		
 		// Cookie Panel
